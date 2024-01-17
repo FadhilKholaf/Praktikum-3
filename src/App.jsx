@@ -17,8 +17,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Beranda />}></Route>
-        <Route path="https://react-praktikum-two.vercel.app/galeri" element={<Galeri />}></Route>
-        <Route path="https://react-praktikum-two.vercel.app/hari-besar" element={<EnvironmentalDaysList />}></Route>
+        <Route path="/galeri" element={<Galeri />}></Route>
+        <Route path="/hari-besar" element={<EnvironmentalDaysList />}></Route>
+        <Route path="/*" element={<Beranda />}></Route>
       </Routes>
       <FooterWithSocialLinks />
     </BrowserRouter>
