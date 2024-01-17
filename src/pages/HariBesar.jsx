@@ -59,7 +59,7 @@ const hariBesarLingkunganHidup = [
 
 export default function EnvironmentalDaysList() {
   return (
-    <div className='mx-40'>
+    <div className='md:mx-40'>
     <ul role="list" className="divide-y divide-gray-100">
       {hariBesarLingkunganHidup.map((day) => (
         <li key={day.id} className="flex justify-between gap-x-6 py-5">
