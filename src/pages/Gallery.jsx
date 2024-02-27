@@ -213,118 +213,123 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="container py-5">
-        <div className="container">
-          <h4 className="alert alert-light">Hallo, {this.state.user}</h4>
-          {/* class="alert alert-primary" role="alert" */}
-          <input
-            type="text"
-            className="form-control my-2"
-            placeholder="Pencarian"
-            value={this.state.keyword}
-            onChange={(ev) => this.setState({ keyword: ev.target.value })}
-            onKeyUp={(ev) => this.searching(ev)}
-          />
-          <button className="btn btn-light" onClick={() => this.add()}>
-            <strong>Tambah Data</strong>
-          </button>
+      <>
+        <img src="https://anandastoon.com/wp-content/uploads/2023/10/387828163_837854654493508_4568758862792552190_n.jpg" alt="" className="position-absolute top-0 start-0 bottom-0 end-0 z-3 vw-100 vh-full "/>
+        <div className="container py-5">
+          <div className="container">
+            <h4 className="alert alert-light">Hallo, {this.state.user}</h4>
+            {/* class="alert alert-primary" role="alert" */}
+            <input
+              type="text"
+              className="form-control my-2"
+              placeholder="Pencarian"
+              value={this.state.keyword}
+              onChange={(ev) => this.setState({ keyword: ev.target.value })}
+              onKeyUp={(ev) => this.searching(ev)}
+            />
+            <div className="d-flex justify-content-end w-100">
+              <button className="btn btn-primary" onClick={() => this.add()}>
+                <strong>Tambah Data</strong>
+              </button>
+            </div>
+            <div className="row">
+              {this.state.filterBuku.map((item, index) => (
+                <Card
+                  key={index}
+                  isbn={item.isbn}
+                  judul={item.judul}
+                  penulis={item.penulis}
+                  penerbit={item.penerbit}
+                  harga={item.harga}
+                  cover={item.cover}
+                  onEdit={() => this.Edit(item)}
+                  onDrop={() => this.Drop(item)}
+                  onCart={() => this.addToCart(item)}
+                />
+              ))}
+            </div>
 
-          <div className="row">
-            {this.state.filterBuku.map((item, index) => (
-              <Card
-                isbn={item.isbn}
-                judul={item.judul}
-                penulis={item.penulis}
-                penerbit={item.penerbit}
-                harga={item.harga}
-                cover={item.cover}
-                onEdit={() => this.Edit(item)}
-                onDrop={() => this.Drop(item)}
-                onCart={() => this.addToCart(item)}
-              />
-            ))}
+            <Modal show={this.state.isModalOpen}>
+              <Modal.Header>
+                <Modal.Title>Data Buku</Modal.Title>
+              </Modal.Header>
+              {/* <Form onSubmit={e=>this.handleSave(e)}> */}
+              <Form onSubmit={(e) => this.handleSave(e)}>
+                <Modal.Body>
+                  <Form.Group className="mb-3" controlId="isbn">
+                    <Form.Label>ISBN</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="isbn"
+                      readOnly
+                      value={this.state.isbn}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="judul">
+                    <Form.Label>Judul</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="judul"
+                      placeholder="masukkan judul"
+                      value={this.state.judul}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="penulis">
+                    <Form.Label>Penulis</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="penulis"
+                      placeholder="masukkan penulis"
+                      value={this.state.penulis}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="penerbit">
+                    <Form.Label>Penerbit</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="penerbit"
+                      placeholder="masukkan penerbit"
+                      value={this.state.penerbit}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="harga">
+                    <Form.Label>Harga</Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="harga"
+                      placeholder="masukkan harga"
+                      value={this.state.harga}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="cover">
+                    <Form.Label>Cover</Form.Label>
+                    <Form.Control
+                      type="url"
+                      name="cover"
+                      placeholder="masukkan link cover"
+                      value={this.state.cover}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button className="btn-danger" onClick={this.handleClose}>
+                    Close
+                  </Button>
+                  <Button className="btn-success" type="submit">
+                    Save
+                  </Button>
+                </Modal.Footer>
+              </Form>
+            </Modal>
           </div>
-
-          <Modal show={this.state.isModalOpen}>
-            <Modal.Header>
-              <Modal.Title>Data Buku</Modal.Title>
-            </Modal.Header>
-            {/* <Form onSubmit={e=>this.handleSave(e)}> */}
-            <Form onSubmit={(e) => this.handleSave(e)}>
-              <Modal.Body>
-                <Form.Group className="mb-3" controlId="isbn">
-                  <Form.Label>ISBN</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="isbn"
-                    readOnly
-                    value={this.state.isbn}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="judul">
-                  <Form.Label>Judul</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="judul"
-                    placeholder="masukkan judul"
-                    value={this.state.judul}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="penulis">
-                  <Form.Label>Penulis</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="penulis"
-                    placeholder="masukkan penulis"
-                    value={this.state.penulis}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="penerbit">
-                  <Form.Label>Penerbit</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="penerbit"
-                    placeholder="masukkan penerbit"
-                    value={this.state.penerbit}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="harga">
-                  <Form.Label>Harga</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="harga"
-                    placeholder="masukkan harga"
-                    value={this.state.harga}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="cover">
-                  <Form.Label>Cover</Form.Label>
-                  <Form.Control
-                    type="url"
-                    name="cover"
-                    placeholder="masukkan link cover"
-                    value={this.state.cover}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={this.handleClose}>
-                  Close
-                </Button>
-                <Button variant="primary" type="submit">
-                  Save
-                </Button>
-              </Modal.Footer>
-            </Form>
-          </Modal>
         </div>
-      </div>
+      </>
     );
   }
 }
