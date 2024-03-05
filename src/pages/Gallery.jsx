@@ -214,7 +214,7 @@ class Gallery extends Component {
   render() {
     return (
       <>
-        <img src="https://anandastoon.com/wp-content/uploads/2023/10/387828163_837854654493508_4568758862792552190_n.jpg" alt="" className="position-absolute top-0 start-0 bottom-0 end-0 z-3 vw-100 vh-full "/>
+        {/* <img src="https://anandastoon.com/wp-content/uploads/2023/10/387828163_837854654493508_4568758862792552190_n.jpg" alt="" className="position-absolute top-0 start-0 bottom-0 end-0 z-3 vw-100 vh-full "/> */}
         <div className="container py-5">
           <div className="container">
             <h4 className="alert alert-light">Hallo, {this.state.user}</h4>
