@@ -8,6 +8,7 @@ const navigation = [
   { name: 'Hari Besar', href: '/hari-besar', current: false },
   { name: 'Gallery', href: '/gallery', current: false },
   { name: 'Cart', href: '/cart', current: false },
+  { name: 'Pegawai', href: '/pegawai', current: false },
 ]
 
 function classNames(...classes) {

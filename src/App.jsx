@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import { FooterWithSocialLinks } from "./components/Footer";
 import EnvironmentalDaysList from "./pages/HariBesar";
 import Cart from "./pages/Cart";
+import Pegawai from "./pages/Pegawai";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/hari-besar" element={<EnvironmentalDaysList />}></Route>
         <Route path="/gallery" element={<Galerry/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/pegawai" element={<Pegawai/>}></Route>
         <Route path="/*" element={<Beranda />}></Route>
       </Routes>
       <FooterWithSocialLinks />

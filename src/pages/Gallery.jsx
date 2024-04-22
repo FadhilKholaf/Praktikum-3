@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "../components/card";
+import Card from "../components/Card";
 import { Modal, Button, Form } from "react-bootstrap";
 
 class Gallery extends Component {
