@@ -58,7 +58,7 @@ class Pegawai extends Component {
   };
 
   getPegawai = () => {
-    let url = "http://localhost:2910/pegawai";
+    let url = "http://54.167.166.153:2910/pegawai";
     // mengakses api untuk mengambil data pegawai
     axios
       .get(url)
@@ -72,7 +72,7 @@ class Pegawai extends Component {
   };
 
   findPegawai = (event) => {
-    let url = "http://localhost:2910/pegawai";
+    let url = "http://54.167.166.153:2910/pegawai";
     if (event.keyCode === 13) {
       // menampung data keyword pencarian
       let form = {
@@ -96,9 +96,9 @@ class Pegawai extends Component {
     event.preventDefault();
     let url = "";
     if (this.state.action === "insert") {
-      url = "http://localhost:2910/pegawai/save";
+      url = "http://54.167.166.153:2910/pegawai/save";
     } else {
-      url = "http://localhost:2910/pegawai/update";
+      url = "http://54.167.166.153:2910/pegawai/update";
     }
 
     let form = {
@@ -118,7 +118,7 @@ class Pegawai extends Component {
   };
 
   Drop = (nip) => {
-    let url = "http://localhost:2910/pegawai/" + nip;
+    let url = "http://54.167.166.153:2910/pegawai/" + nip;
     // memanggil url API untuk menghapus data pada database
     if (window.confirm("Apakah Anda yakin ingin menghapus data ini?")) {
       axios
