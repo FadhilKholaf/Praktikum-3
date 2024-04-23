@@ -4,6 +4,7 @@ import axios from "axios";
 import $ from "jquery";
 import { Modal, Button, Form } from "react-bootstrap";
 import Layout from "../components/layout";
+import { BACKEND_API } from "../../constants";
 
 class Pegawai extends Component {
   constructor() {
@@ -58,7 +59,7 @@ class Pegawai extends Component {
   };
 
   getPegawai = () => {
-    let url = "http://54.167.166.153:2910/pegawai";
+    let url = BACKEND_API + "/pegawai";
     // mengakses api untuk mengambil data pegawai
     axios
       .get(url)
@@ -72,7 +73,7 @@ class Pegawai extends Component {
   };
 
   findPegawai = (event) => {
-    let url = "http://54.167.166.153:2910/pegawai";
+    let url = BACKEND_API + "/pegawai";
     if (event.keyCode === 13) {
       // menampung data keyword pencarian
       let form = {
@@ -96,9 +97,9 @@ class Pegawai extends Component {
     event.preventDefault();
     let url = "";
     if (this.state.action === "insert") {
-      url = "http://54.167.166.153:2910/pegawai/save";
+      url = BACKEND_API + "http://54.167.166.153:2910/pegawai/save";
     } else {
-      url = "http://54.167.166.153:2910/pegawai/update";
+      url = BACKEND_API + "/pegawai/update";
     }
 
     let form = {
@@ -118,7 +119,7 @@ class Pegawai extends Component {
   };
 
   Drop = (nip) => {
-    let url = "http://54.167.166.153:2910/pegawai/" + nip;
+    let url = BACKEND_API + "/pegawai/" + nip;
     // memanggil url API untuk menghapus data pada database
     if (window.confirm("Apakah Anda yakin ingin menghapus data ini?")) {
       axios
