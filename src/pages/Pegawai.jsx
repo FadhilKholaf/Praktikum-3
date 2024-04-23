@@ -97,7 +97,7 @@ class Pegawai extends Component {
     event.preventDefault();
     let url = "";
     if (this.state.action === "insert") {
-      url = BACKEND_API + "http://54.167.166.153:2910/pegawai/save";
+      url = BACKEND_API + "/pegawai/save";
     } else {
       url = BACKEND_API + "/pegawai/update";
     }
