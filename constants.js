@@ -1,1 +1,1 @@
-export const BACKEND_API="http://54.167.217.201:2910"
+export const BACKEND_API="http://3.87.68.193:2910"
